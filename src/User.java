@@ -1,11 +1,10 @@
 public class User {
 
-    private String name;
-    private int highScore;
+    public String trainerName;
+    private int highScore = 0;
 
-    public User() {
-        this.name = name;
-        this.highScore = highScore;
+    public User(String trainerName) {
+        this.trainerName = trainerName;
 
     }
 }

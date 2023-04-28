@@ -13,9 +13,7 @@ public class Main {
         System.out.println("1 - WATER, 2 - EARTH, 3 - FIRE, 4 - AIR");
         int pokemonType = Integer.parseInt(userInput.nextLine());
         Pokemon userPokemon = new Pokemon(pokemonType);
-
-        //HELLO
-
+        User name = new User(userName);
 
 
 
@@ -34,5 +32,6 @@ public class Main {
                 System.out.println("Great you selected a AIR type Pokemon ");
                 break;
         }
+        System.out.println(userPokemon.pokemonElement);
     }
 }
