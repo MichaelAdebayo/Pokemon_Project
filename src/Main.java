@@ -14,6 +14,9 @@ public class Main {
         int pokemonType = Integer.parseInt(userInput.nextLine());
         Pokemon userPokemon = new Pokemon(pokemonType);
 
+        //HELLO
+
+
 
 
     //Switch statement to let the user know which type of pokemon type they selected
