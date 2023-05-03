@@ -8,7 +8,7 @@ public class Main {
         System.out.println("Enter your name to get started ! ");
         String userName = userInput.nextLine();
 
-       // Scanner asking for the users pokemon type
+       // Scanner asking for the users Pokémon type
         System.out.println( "Hey!"+ " " + userName +" "+ "Please Select a Pokemon Type");
         System.out.println("1 - WATER, 2 - EARTH, 3 - FIRE, 4 - AIR");
         int pokemonType = Integer.parseInt(userInput.nextLine());
@@ -16,22 +16,22 @@ public class Main {
         User name = new User(userName);
 
 
-
-    //Switch statement to let the user know which type of pokemon type they selected
+    //Switch statement to let the user know which type of Pokémon type they selected
         switch (pokemonType) {
             case 1:
-                System.out.println("Great you selected a WATER type Pokemon ");
+                System.out.println("Great you selected a WATER type Pokemon! ");
                 break;
             case 2:
-                System.out.println("Great you selected a EARTH type Pokemon ");
+                System.out.println("Great you selected a EARTH type Pokemon! ");
                 break;
             case 3:
-                System.out.println("Great you selected a FIRE type Pokemon ");
+                System.out.println("Great you selected a FIRE type Pokemon! ");
                 break;
             case 4:
-                System.out.println("Great you selected a AIR type Pokemon ");
+                System.out.println("Great you selected a AIR type Pokemon! ");
                 break;
         }
-        System.out.println(userPokemon.pokemonElement);
+
+        //System.out.println(userPokemon.pokemonElement);
     }
 }
