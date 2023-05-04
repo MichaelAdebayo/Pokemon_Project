@@ -42,7 +42,7 @@ public class Pokemon {
                 this.pokemonName = "Aang";
                 break;
         }
-System.out.println("You Pokemon name is : "+ pokemonName);
+System.out.println("Your Pokemon name is : "+ pokemonName);
         }
 
     public String getElementTypeName() {
@@ -88,7 +88,7 @@ System.out.println("You Pokemon name is : "+ pokemonName);
 
     //Will reduce the health of the Pokemon based on what type of attack was used
     private void takeDamage(int damage) {
-        health = health - damage;
+        this.health = this.health - damage;
     }
 
     private int calculateAttackDamage(int baseDamage) {
