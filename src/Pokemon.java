@@ -28,6 +28,7 @@ public class Pokemon {
     //Constructor that will allow me to call the fields of Pokemon Class
     public Pokemon(int pokemonElement) {
         this.pokemonElement = pokemonElement;
+        //this.health = health;
         switch (pokemonElement) {
             case 1:
                 this.pokemonName = "Bulb";
@@ -42,11 +43,15 @@ public class Pokemon {
                 this.pokemonName = "Aang";
                 break;
         }
-System.out.println("Your Pokemon name is : "+ pokemonName);
+//System.out.println("Your Pokemon name is : "+ pokemonName);
         }
 
     public String getElementTypeName() {
         return elementMap.getOrDefault(pokemonElement, "UNKNOWN");
+    }
+
+    public int getHealth(){
+        return health;
     }
 
     //Methods that will control the logic of how the pokemon will attack

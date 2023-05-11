@@ -50,9 +50,39 @@ public class Main {
             System.out.println("Let's Begin");
 
             // This is just to test to make sure the functions are working correctly
-             //The object will take the random number and give out a pokemon with a random element everytime
+             //The object will take the random number and give out a Pokémon with a random element everytime
              Pokemon testPokemon = new Pokemon(randomNumber);
-        } else if (play.equals("n") || play.equals("N")) {
+             //Will let the user know if they have an advantage or disadvantage facing a certain Pokémon with an element type
+             System.out.println("Your opponent has a " + testPokemon.getElementTypeName()+ " Type pokemon !");
+            int pokemonHealth =  userPokemon.getHealth();
+
+             while (pokemonHealth > 0 || testPokemon.getHealth() <= 0){
+                 System.out.println("Pick an Attack: L , M , H , S ");
+                 System.out.println("Opponents Heath : " + testPokemon.getHealth());
+                 String attack = userInput.nextLine();
+
+                 switch (attack){
+                     case "l":
+                         userPokemon.lightAttack(testPokemon);
+                         break;
+                     case "m":
+                         userPokemon.mediumAttack(testPokemon);
+                         break;
+                     case "h":
+                         userPokemon.heavyAttack(testPokemon);
+                         break;
+                     case "s":
+                         userPokemon.specialAttack(testPokemon);
+                         break;
+
+                 }
+
+
+
+             }
+
+        }
+         else if (play.equals("n") || play.equals("N")) {
             System.out.println("Bye");
         }
 
