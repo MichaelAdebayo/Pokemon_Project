@@ -28,18 +28,10 @@ public class Main {
 
     //Switch statement to let the user know which type of Pokémon type they selected
         switch (pokemonType) {
-            case 1:
-                System.out.println("Great you selected a WATER type Pokemon! ");
-                break;
-            case 2:
-                System.out.println("Great you selected a EARTH type Pokemon! ");
-                break;
-            case 3:
-                System.out.println("Great you selected a FIRE type Pokemon! ");
-                break;
-            case 4:
-                System.out.println("Great you selected a AIR type Pokemon! ");
-                break;
+            case 1 -> System.out.println("Great you selected a WATER type Pokemon! ");
+            case 2 -> System.out.println("Great you selected a EARTH type Pokemon! ");
+            case 3 -> System.out.println("Great you selected a FIRE type Pokemon! ");
+            case 4 -> System.out.println("Great you selected a AIR type Pokemon! ");
         }
 
         System.out.println();
@@ -56,27 +48,20 @@ public class Main {
              System.out.println("Your opponent has a " + testPokemon.getElementTypeName()+ " Type pokemon !");
             int pokemonHealth =  userPokemon.getHealth();
 
+
              while (pokemonHealth > 0 || testPokemon.getHealth() <= 0){
                  System.out.println("Pick an Attack: L , M , H , S ");
                  System.out.println("Opponents Heath : " + testPokemon.getHealth());
                  String attack = userInput.nextLine();
 
-                 switch (attack){
-                     case "l":
-                         userPokemon.lightAttack(testPokemon);
-                         break;
-                     case "m":
-                         userPokemon.mediumAttack(testPokemon);
-                         break;
-                     case "h":
-                         userPokemon.heavyAttack(testPokemon);
-                         break;
-                     case "s":
-                         userPokemon.specialAttack(testPokemon);
-                         break;
-
+                 //Switch statement that will allow user to select what type of attack they want to perform
+                 switch (attack) {
+                     case "l" -> userPokemon.lightAttack(testPokemon);
+                     case "m" -> userPokemon.mediumAttack(testPokemon);
+                     case "h" -> userPokemon.heavyAttack(testPokemon);
+                     case "s" -> userPokemon.specialAttack(testPokemon);
                  }
-
+// Will have to add the logic to allow the computer to generate an attack too, will use another switch statement
 
 
              }
