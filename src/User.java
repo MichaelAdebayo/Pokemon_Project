@@ -5,7 +5,14 @@ public class User {
 
     public User(String trainerName) {
         this.trainerName = trainerName;
-        //Add a method to allow the high score to go up 1 point when a Pokémon is defeated
+        this.highScore = highScore;
+
+
     }
 
+    //Add a method to allow the high score to go up 1 point when a Pokémon is defeated
+    public void scoreTracker(){
+
+
+    }
 }

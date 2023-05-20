@@ -50,8 +50,10 @@ public class Main {
 
 
              while (pokemonHealth > 0 || testPokemon.getHealth() <= 0){
+                 System.out.println();
                  System.out.println("Pick an Attack: L , M , H , S ");
                  System.out.println("Opponents Heath : " + testPokemon.getHealth());
+                 System.out.println();
                  String attack = userInput.nextLine();
 
                  //Switch statement that will allow user to select what type of attack they want to perform
@@ -63,6 +65,42 @@ public class Main {
                  }
 // Will have to add the logic to allow the computer to generate an attack too, will use another switch statement
 
+                 Random randomLetter = new Random();
+                 String[] computerAttack = {"l", "m", "h", "s"};
+                 String randomAttackType = computerAttack[random.nextInt(computerAttack.length)];
+
+
+                 System.out.println();
+
+                 switch (randomAttackType) {
+                     case "l" -> {
+                         testPokemon.lightAttack(userPokemon);
+                         System.out.println("Opponent used a light attack");
+
+                     }
+                     case "m" -> {
+                         testPokemon.mediumAttack(userPokemon);
+                         System.out.println("Opponent used a medium attack");
+
+                     }
+                     case "h" -> {
+                         testPokemon.heavyAttack(userPokemon);
+                         System.out.println("Opponent used a heavy attack");
+
+                     }
+                     case "s" -> {
+                         testPokemon.specialAttack(userPokemon);
+                         System.out.println("Opponent used a special  attack");
+
+                     }
+                 }
+                 System.out.println("Your Health: " + userPokemon.getHealth() );
+
+             }
+
+             if (pokemonHealth ==   0){
+
+                 System.out.println("You Lost");
 
              }
 
