@@ -51,31 +51,31 @@ public class Pokemon {
     }
 
     public int getHealth(){
-        return health;
+        return health ;
     }
 
     //Methods that will control the logic of how the pokemon will attack
     //As well as the properties of each attack
     public void lightAttack(Pokemon target) {
-        int damage = calculateAttackDamage(10);
+        int damage = calculateAttackDamage(10, target);
         double missAttack= 0.05;
         performAttack(target, damage, missAttack);
     }
 
     public void mediumAttack(Pokemon target) {
-        int damage = calculateAttackDamage(20);
+        int damage = calculateAttackDamage(20, target);
         double missAttack= 0.1;
         performAttack(target, damage, missAttack);
     }
 
     public void heavyAttack(Pokemon target) {
-        int damage = calculateAttackDamage(30);
+        int damage = calculateAttackDamage(30, target);
         double missAttack= 0.2;
         performAttack(target, damage, missAttack);
     }
 
     public void specialAttack(Pokemon target) {
-        int damage = calculateAttackDamage(40);
+        int damage = calculateAttackDamage(40,  target);
         double missAttack= 0.4;
         performAttack(target, damage, missAttack);
     }
@@ -96,8 +96,43 @@ public class Pokemon {
         this.health = this.health - damage;
     }
 
-    private int calculateAttackDamage(int baseDamage) {
+    private int calculateAttackDamage(int baseDamage, Pokemon target) {
         // Calculate attack damage based on level, type advantages, and other factors
+
+
+
+        //Elemental advantage for a WATER type attacking a FIRE type
+        if (pokemonElement == 1 && target.getElementTypeName().equals("FIRE")){
+            baseDamage *=2;
+            System.out.println("IT DID 2x DAMAGE");
+        }
+        ////Elemental disadvantage for a WATER type attacking a AIR type
+        else if (pokemonElement == 1 && target.getElementTypeName().equals("AIR"))
+        {
+            baseDamage *=0.5;
+            System.out.println("IT DID 0.5x DAMAGE");
+
+        }
+
+
+        //Elemental advantage for a EARTH type attacking a AIR type
+        if (pokemonElement == 2 && target.getElementTypeName().equals("AIR")){
+            baseDamage *=2;
+            System.out.println("IT DID 2x DAMAGE");
+        }
+
+        //Elemental advantage for a FIRE type attacking a EARTH type
+        if (pokemonElement == 3 && target.getElementTypeName().equals("EARTH")){
+            baseDamage *=2;
+            System.out.println("IT DID 2x DAMAGE");
+        }
+
+        //Elemental advantage for a AIR type attacking a WATER type
+        if (pokemonElement == 4 && target.getElementTypeName().equals("WATER")){
+            baseDamage *=2;
+            System.out.println("IT DID 2x DAMAGE");
+        }
+
         // Return the calculated damage value
         return baseDamage;
     }

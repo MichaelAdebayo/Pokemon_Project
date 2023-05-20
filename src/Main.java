@@ -46,10 +46,20 @@ public class Main {
              Pokemon testPokemon = new Pokemon(randomNumber);
              //Will let the user know if they have an advantage or disadvantage facing a certain Pokémon with an element type
              System.out.println("Your opponent has a " + testPokemon.getElementTypeName()+ " Type pokemon !");
-            int pokemonHealth =  userPokemon.getHealth();
+             int pokemonHealth =  userPokemon.getHealth();
 
 
              while (pokemonHealth > 0 || testPokemon.getHealth() <= 0){
+
+                    pokemonHealth =  userPokemon.getHealth();
+
+                //Will end the while loop once the user loses
+                 if (pokemonHealth <=   0){
+
+                     System.out.println("You Lost");
+                     break;
+
+                 }
                  System.out.println();
                  System.out.println("Pick an Attack: L , M , H , S ");
                  System.out.println("Opponents Heath : " + testPokemon.getHealth());
@@ -74,35 +84,36 @@ public class Main {
 
                  switch (randomAttackType) {
                      case "l" -> {
-                         testPokemon.lightAttack(userPokemon);
                          System.out.println("Opponent used a light attack");
+                         testPokemon.lightAttack(userPokemon);
+
 
                      }
                      case "m" -> {
-                         testPokemon.mediumAttack(userPokemon);
                          System.out.println("Opponent used a medium attack");
+                         testPokemon.mediumAttack(userPokemon);
 
                      }
                      case "h" -> {
-                         testPokemon.heavyAttack(userPokemon);
                          System.out.println("Opponent used a heavy attack");
+                         testPokemon.heavyAttack(userPokemon);
+
 
                      }
                      case "s" -> {
-                         testPokemon.specialAttack(userPokemon);
                          System.out.println("Opponent used a special  attack");
+                         testPokemon.specialAttack(userPokemon);
+
 
                      }
                  }
                  System.out.println("Your Health: " + userPokemon.getHealth() );
 
-             }
 
-             if (pokemonHealth ==   0){
-
-                 System.out.println("You Lost");
 
              }
+
+
 
         }
          else if (play.equals("n") || play.equals("N")) {

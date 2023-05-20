@@ -14,5 +14,12 @@ public class User {
     public void scoreTracker(){
 
 
+
+    }
+
+    // Can use to increase the highscore
+    public  int getHighScore(){
+         highScore++;
+         return highScore;
     }
 }
