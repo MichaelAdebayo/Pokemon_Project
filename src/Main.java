@@ -36,6 +36,7 @@ public class Main {
 
 
 
+
     //Switch statement to let the user know which type of Pokémon type they selected
         switch (pokemonType) {
             case 1 -> System.out.println("Great you selected a WATER type Pokemon! ");
@@ -69,8 +70,9 @@ public class Main {
                      System.out.println("You Lost");
                      break;
 
-                 } else if (userPokemon.getHealth() <= 0) {
+                 } else if (testPokemon.getHealth() <= 0) {
                      System.out.println("You WON");
+                     System.out.println(name.getHighScore());
 
                  }
                  System.out.println();
