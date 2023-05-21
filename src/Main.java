@@ -3,6 +3,7 @@ import java.util.*;
 import java.util.Random;
 public class Main {
     public static void main(String[] args) {
+
         // Scanner asking for the users name
         Scanner userInput = new Scanner(System.in);
         System.out.println("Hello Welcome to the Pokemon Trainer Game!");
@@ -17,12 +18,21 @@ public class Main {
         System.out.println( "Hey!"+ " " + userName +" "+ "Please Select a Pokemon Type");
         System.out.println("1 - WATER, 2 - EARTH, 3 - FIRE, 4 - AIR");
         int pokemonType = Integer.parseInt(userInput.nextLine());
+
+        //a do-while loop to make sure the user selects a valid response
+        if(pokemonType > 4 || pokemonType < 1) {
+            do {
+                System.out.println("Please Enter a valid Pokemon Type!");
+
+                System.out.println("1 - WATER, 2 - EARTH, 3 - FIRE, 4 - AIR");
+                pokemonType = Integer.parseInt(userInput.nextLine());
+            }
+            while (pokemonType > 4 || pokemonType < 1);
+        }
+
+
         Pokemon userPokemon = new Pokemon(pokemonType);
         User name = new User(userName);
-
-
-
-       // testPokemon.lightAttack(userPokemon);
 
 
 
@@ -59,6 +69,9 @@ public class Main {
                      System.out.println("You Lost");
                      break;
 
+                 } else if (userPokemon.getHealth() <= 0) {
+                     System.out.println("You WON");
+
                  }
                  System.out.println();
                  System.out.println("Pick an Attack: L , M , H , S ");
@@ -67,7 +80,8 @@ public class Main {
                  String attack = userInput.nextLine();
 
                  //Switch statement that will allow user to select what type of attack they want to perform
-                 switch (attack) {
+                 //to-lower will make sure the user input will be entered in as a lowercase
+                 switch (attack.toLowerCase()) {
                      case "l" -> userPokemon.lightAttack(testPokemon);
                      case "m" -> userPokemon.mediumAttack(testPokemon);
                      case "h" -> userPokemon.heavyAttack(testPokemon);
@@ -75,7 +89,7 @@ public class Main {
                  }
 // Will have to add the logic to allow the computer to generate an attack too, will use another switch statement
 
-                 Random randomLetter = new Random();
+                 //Random randomLetter = new Random();
                  String[] computerAttack = {"l", "m", "h", "s"};
                  String randomAttackType = computerAttack[random.nextInt(computerAttack.length)];
 
@@ -107,7 +121,14 @@ public class Main {
 
                      }
                  }
-                 System.out.println("Your Health: " + userPokemon.getHealth() );
+                 System.out.println("Your Health: " + pokemonHealth );
+
+                 if (testPokemon.getHealth() <= 0){
+                     System.out.println();
+                     pokemonHealth +=10;
+                     System.out.println("Your Health: " + pokemonHealth );
+
+                 }
 
 
 
@@ -121,7 +142,5 @@ public class Main {
         }
 
 
-
-        //System.out.println(userPokemon.pokemonElement);
     }
 }
