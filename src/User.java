@@ -20,6 +20,7 @@ public class User {
     // Can use to increase the highscore
     public  int getHighScore(){
          highScore++;
+         System.out.print("Your Score : ");
          return highScore;
     }
 }

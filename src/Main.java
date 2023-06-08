@@ -8,7 +8,9 @@ public class Main {
         Scanner userInput = new Scanner(System.in);
         System.out.println("Hello Welcome to the Pokemon Trainer Game!");
         System.out.println("Enter your name to get started ! ");
+        System.out.print("Your Name: ");
         String userName = userInput.nextLine();
+        System.out.println();
 
         //Random number between 1 - 4
         Random random = new Random();
@@ -67,7 +69,9 @@ public class Main {
                 //Will end the while loop once the user loses
                  if (pokemonHealth <=   0){
 
+
                      System.out.println("You Lost");
+                     System.out.println(name.getHighScore());
                      break;
 
                  } else if (testPokemon.getHealth() <= 0) {
@@ -79,6 +83,7 @@ public class Main {
                  System.out.println("Pick an Attack: L , M , H , S ");
                  System.out.println("Opponents Heath : " + testPokemon.getHealth());
                  System.out.println();
+                 System.out.print("Your Attack : ");
                  String attack = userInput.nextLine();
 
                  //Switch statement that will allow user to select what type of attack they want to perform
@@ -123,7 +128,17 @@ public class Main {
 
                      }
                  }
-                 System.out.println("Your Health: " + pokemonHealth );
+
+                 if (userPokemon.getHealth() > 0)
+                 {
+                 System.out.println("Your Health: " + userPokemon.getHealth());
+                 }
+                 else if (userPokemon.getHealth()<= 0)
+                 {
+                     int userPokemonHealth = userPokemon.getHealth();
+                     userPokemonHealth= 0;
+                     System.out.println("Your Health: " + userPokemonHealth);
+                 }
 
                  if (testPokemon.getHealth() <= 0){
                      System.out.println();

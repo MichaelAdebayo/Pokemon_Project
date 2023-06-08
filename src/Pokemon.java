@@ -99,8 +99,6 @@ public class Pokemon {
     private int calculateAttackDamage(int baseDamage, Pokemon target) {
         // Calculate attack damage based on level, type advantages, and other factors
 
-
-
         //Elemental advantage for a WATER type attacking a FIRE type
         if (pokemonElement == 1 && target.getElementTypeName().equals("FIRE")){
             baseDamage *=2;
