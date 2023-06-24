@@ -1,6 +1,5 @@
-# Pokemon_Project
-My personal Project
 # Pokemon Trainer Game
+My personal Project
 
 Welcome to the Pokemon Trainer Game! This is a Java-based console game where you can train and battle with different types of Pokemon.
 
