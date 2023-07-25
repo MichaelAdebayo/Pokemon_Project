@@ -93,7 +93,17 @@ public class Pokemon {
 
     //Will reduce the health of the Pokemon based on what type of attack was used
     private void takeDamage(int damage) {
+
         this.health = this.health - damage;
+    }
+
+    //Should add 10 health to the pokemon
+    public int giveHealth() {
+
+        this.health = this.health + 10 ;
+
+        return health;
+
     }
 
     private int calculateAttackDamage(int baseDamage, Pokemon target) {

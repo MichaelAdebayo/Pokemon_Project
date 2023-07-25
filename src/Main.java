@@ -12,10 +12,6 @@ public class Main {
         String userName = userInput.nextLine();
         System.out.println();
 
-        //Random number between 1 - 4
-        Random random = new Random();
-        int randomNumber = random.nextInt(4)+1;
-
        // Scanner asking for the users Pokémon type
         System.out.println( "Hey!"+ " " + userName +" "+ "Please Select a Pokemon Type");
         System.out.println("1 - WATER, 2 - EARTH, 3 - FIRE, 4 - AIR");
@@ -32,12 +28,8 @@ public class Main {
             while (pokemonType > 4 || pokemonType < 1);
         }
 
-
         Pokemon userPokemon = new Pokemon(pokemonType);
         User name = new User(userName);
-
-
-
 
     //Switch statement to let the user know which type of Pokémon type they selected
         switch (pokemonType) {
@@ -54,34 +46,51 @@ public class Main {
          if (play.equals("y") || play.equals("Y")) {
             System.out.println("Let's Begin");
 
-            // This is just to test to make sure the functions are working correctly
              //The object will take the random number and give out a Pokémon with a random element everytime
-             Pokemon testPokemon = new Pokemon(randomNumber);
+
+             //an If statement that should allow for a Pokémon to be generated as long as the user has health
+             //Random number between 1 - 4
+             Random random = new Random();
+             int randomNumber = random.nextInt(4)+1;
+             Pokemon opponentPokemon = new Pokemon(randomNumber);
+
+
+
              //Will let the user know if they have an advantage or disadvantage facing a certain Pokémon with an element type
-             System.out.println("Your opponent has a " + testPokemon.getElementTypeName()+ " Type pokemon !");
+             System.out.println("Your opponent has a " + opponentPokemon.getElementTypeName()+ " Type pokemon !");
              int pokemonHealth =  userPokemon.getHealth();
 
+//the loop will continue running as long as both the user's Pokémon health and the computer opponent's health are above 0
+             while (pokemonHealth > 0 ){
 
-             while (pokemonHealth > 0 || testPokemon.getHealth() <= 0){
 
-                    pokemonHealth =  userPokemon.getHealth();
+                    //pokemonHealth =  userPokemon.getHealth();
 
                 //Will end the while loop once the user loses
-                 if (pokemonHealth <=   0){
+                 if (userPokemon.getHealth() <=   0){
 
 
                      System.out.println("You Lost");
                      System.out.println(name.getHighScore());
                      break;
 
-                 } else if (testPokemon.getHealth() <= 0) {
+                 } else if (opponentPokemon.getHealth() <= 0) {
                      System.out.println("You WON");
                      System.out.println(name.getHighScore());
 
                  }
                  System.out.println();
                  System.out.println("Pick an Attack: L , M , H , S ");
-                 System.out.println("Opponents Heath : " + testPokemon.getHealth());
+
+                 if(opponentPokemon.getHealth() <= 0 ){
+                     int opponentHealth;
+                     opponentHealth= 0 ;
+                     System.out.println("Opponents Heath : " + opponentHealth);
+                 }
+                 else {
+                     System.out.println("Opponents Heath : " + opponentPokemon.getHealth());
+                 }
+
                  System.out.println();
                  System.out.print("Your Attack : ");
                  String attack = userInput.nextLine();
@@ -89,12 +98,13 @@ public class Main {
                  //Switch statement that will allow user to select what type of attack they want to perform
                  //to-lower will make sure the user input will be entered in as a lowercase
                  switch (attack.toLowerCase()) {
-                     case "l" -> userPokemon.lightAttack(testPokemon);
-                     case "m" -> userPokemon.mediumAttack(testPokemon);
-                     case "h" -> userPokemon.heavyAttack(testPokemon);
-                     case "s" -> userPokemon.specialAttack(testPokemon);
+                     case "l" -> userPokemon.lightAttack(opponentPokemon);
+                     case "m" -> userPokemon.mediumAttack(opponentPokemon);
+                     case "h" -> userPokemon.heavyAttack(opponentPokemon);
+                     case "s" -> userPokemon.specialAttack(opponentPokemon);
+                     default -> System.out.println("Invalid Attack! Try again.");
                  }
-// Will have to add the logic to allow the computer to generate an attack too, will use another switch statement
+//The logic to allow the computer to generate an attack too, will use another switch statement
 
                  //Random randomLetter = new Random();
                  String[] computerAttack = {"l", "m", "h", "s"};
@@ -106,58 +116,49 @@ public class Main {
                  switch (randomAttackType) {
                      case "l" -> {
                          System.out.println("Opponent used a light attack");
-                         testPokemon.lightAttack(userPokemon);
-
-
+                         opponentPokemon.lightAttack(userPokemon);
                      }
                      case "m" -> {
                          System.out.println("Opponent used a medium attack");
-                         testPokemon.mediumAttack(userPokemon);
-
+                         opponentPokemon.mediumAttack(userPokemon);
                      }
                      case "h" -> {
                          System.out.println("Opponent used a heavy attack");
-                         testPokemon.heavyAttack(userPokemon);
-
-
+                         opponentPokemon.heavyAttack(userPokemon);
                      }
                      case "s" -> {
                          System.out.println("Opponent used a special  attack");
-                         testPokemon.specialAttack(userPokemon);
-
-
+                         opponentPokemon.specialAttack(userPokemon);
                      }
                  }
 
                  if (userPokemon.getHealth() > 0)
                  {
                  System.out.println("Your Health: " + userPokemon.getHealth());
+
                  }
                  else if (userPokemon.getHealth()<= 0)
                  {
-                     int userPokemonHealth = userPokemon.getHealth();
+                     int userPokemonHealth;
                      userPokemonHealth= 0;
                      System.out.println("Your Health: " + userPokemonHealth);
                  }
 
-                 if (testPokemon.getHealth() <= 0){
+                 if (opponentPokemon.getHealth() <= 0){
                      System.out.println();
                      pokemonHealth +=10;
-                     System.out.println("Your Health: " + pokemonHealth );
+                     System.out.println("Your Health: " + userPokemon.giveHealth());
+
+                     //This is the creation of a new Pokémon once the previous one is defeated
+                     randomNumber = random.nextInt(4) + 1;
+                     opponentPokemon = new Pokemon(randomNumber);
+                     System.out.println("Your new opponent has a " + opponentPokemon.getElementTypeName() + " Type pokemon !");
 
                  }
-
-
-
              }
-
-
-
         }
          else if (play.equals("n") || play.equals("N")) {
             System.out.println("Bye");
         }
-
-
     }
 }
