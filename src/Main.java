@@ -28,6 +28,15 @@ public class Main {
             while (pokemonType > 4 || pokemonType < 1);
         }
 
+        /*
+        while (pokemonType > 4 || pokemonType < 1 ){
+            System.out.println("Please Enter a valid Pokémon Type!");
+
+            System.out.println("1 - WATER, 2 - EARTH, 3 - FIRE, 4 - AIR");
+            pokemonType = Integer.parseInt(userInput.nextLine());
+        }
+         */
+
         Pokemon userPokemon = new Pokemon(pokemonType);
         User name = new User(userName);
 
@@ -43,8 +52,17 @@ public class Main {
 
         System.out.println("Are you ready for your first opponent?");
         String play = userInput.nextLine();
+
+//Loop until expected input is selected
+        while (!(play.toUpperCase(Locale.of(play)).equals("Y") || play.toUpperCase(Locale.of(play)).equals("N"))){
+            System.out.println("Please Enter a valid Response");
+            play = userInput.nextLine();
+        }
+
          if (play.equals("y") || play.equals("Y")) {
             System.out.println("Let's Begin");
+
+
 
              //The object will take the random number and give out a Pokémon with a random element everytime
 
@@ -76,7 +94,7 @@ public class Main {
 
                  } else if (opponentPokemon.getHealth() <= 0) {
                      System.out.println("You WON");
-                     System.out.println(name.getHighScore());
+                    // System.out.println(name.getHighScore());
 
                  }
                  System.out.println();
@@ -152,6 +170,8 @@ public class Main {
                      //This is the creation of a new Pokémon once the previous one is defeated
                      randomNumber = random.nextInt(4) + 1;
                      opponentPokemon = new Pokemon(randomNumber);
+                     System.out.println("You WON");
+                     System.out.println(name.getHighScore());
                      System.out.println("Your new opponent has a " + opponentPokemon.getElementTypeName() + " Type pokemon !");
 
                  }
