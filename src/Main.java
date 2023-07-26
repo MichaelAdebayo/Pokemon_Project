@@ -81,19 +81,18 @@ public class Main {
 //the loop will continue running as long as both the user's Pokémon health and the computer opponent's health are above 0
              while (pokemonHealth > 0 ){
 
-
-                    //pokemonHealth =  userPokemon.getHealth();
-
                 //Will end the while loop once the user loses
                  if (userPokemon.getHealth() <=   0){
 
-
                      System.out.println("You Lost");
                      System.out.println(name.getHighScore());
+                     int wow = name.getHighScore();
+                     wow -=1;
+                     System.out.println(wow);
                      break;
 
                  } else if (opponentPokemon.getHealth() <= 0) {
-                     System.out.println("You WON");
+                     System.out.println("You WON!");
                     // System.out.println(name.getHighScore());
 
                  }
@@ -120,7 +119,12 @@ public class Main {
                      case "m" -> userPokemon.mediumAttack(opponentPokemon);
                      case "h" -> userPokemon.heavyAttack(opponentPokemon);
                      case "s" -> userPokemon.specialAttack(opponentPokemon);
-                     default -> System.out.println("Invalid Attack! Try again.");
+                 }
+                 while (!(attack.toLowerCase(Locale.of(attack)).equals("l") || attack.toLowerCase(Locale.of(attack)).equals("m"))||attack.toLowerCase(Locale.of(attack)).equals("h")||attack.toLowerCase(Locale.of(attack)).equals("s"))
+                 {
+                     System.out.println("Please enter a valid Attack");
+                     System.out.print("Your Attack : ");
+                     attack = userInput.nextLine();
                  }
 //The logic to allow the computer to generate an attack too, will use another switch statement
 
