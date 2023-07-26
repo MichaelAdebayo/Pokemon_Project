@@ -87,7 +87,7 @@ public class Main {
                      System.out.println("You Lost");
                      System.out.println(name.getHighScore());
                      int wow = name.getHighScore();
-                     wow -=1;
+                     wow --;
                      System.out.println(wow);
                      break;
 
@@ -120,7 +120,7 @@ public class Main {
                      case "h" -> userPokemon.heavyAttack(opponentPokemon);
                      case "s" -> userPokemon.specialAttack(opponentPokemon);
                  }
-                 while (!(attack.toLowerCase(Locale.of(attack)).equals("l") || attack.toLowerCase(Locale.of(attack)).equals("m"))||attack.toLowerCase(Locale.of(attack)).equals("h")||attack.toLowerCase(Locale.of(attack)).equals("s"))
+                 while (!(attack.toLowerCase(Locale.of(attack)).equals("l") || attack.toLowerCase(Locale.of(attack)).equals("m")||attack.toLowerCase(Locale.of(attack)).equals("h")||attack.toLowerCase(Locale.of(attack)).equals("s")))
                  {
                      System.out.println("Please enter a valid Attack");
                      System.out.print("Your Attack : ");
