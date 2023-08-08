@@ -87,7 +87,7 @@ public class Main {
                      System.out.println("You Lost");
                      System.out.println(name.getHighScore());
                      int wow = name.getHighScore();
-                     wow --;
+                     wow = 0;
                      System.out.println(wow);
                      break;
 
@@ -129,28 +129,34 @@ public class Main {
 //The logic to allow the computer to generate an attack too, will use another switch statement
 
                  //Random randomLetter = new Random();
-                 String[] computerAttack = {"l", "m", "h", "s"};
-                 String randomAttackType = computerAttack[random.nextInt(computerAttack.length)];
 
 
-                 System.out.println();
+                 if (opponentPokemon.getHealth() > 0) {
+                     String[] computerAttack = {"l", "m", "h", "s"};
+                     String randomAttackType = computerAttack[random.nextInt(computerAttack.length)];
 
-                 switch (randomAttackType) {
-                     case "l" -> {
-                         System.out.println("Opponent used a light attack");
-                         opponentPokemon.lightAttack(userPokemon);
-                     }
-                     case "m" -> {
-                         System.out.println("Opponent used a medium attack");
-                         opponentPokemon.mediumAttack(userPokemon);
-                     }
-                     case "h" -> {
-                         System.out.println("Opponent used a heavy attack");
-                         opponentPokemon.heavyAttack(userPokemon);
-                     }
-                     case "s" -> {
-                         System.out.println("Opponent used a special  attack");
-                         opponentPokemon.specialAttack(userPokemon);
+
+                     System.out.println();
+
+
+
+                     switch (randomAttackType) {
+                         case "l" -> {
+                             System.out.println("Opponent used a light attack");
+                             opponentPokemon.lightAttack(userPokemon);
+                         }
+                         case "m" -> {
+                             System.out.println("Opponent used a medium attack");
+                             opponentPokemon.mediumAttack(userPokemon);
+                         }
+                         case "h" -> {
+                             System.out.println("Opponent used a heavy attack");
+                             opponentPokemon.heavyAttack(userPokemon);
+                         }
+                         case "s" -> {
+                             System.out.println("Opponent used a special  attack");
+                             opponentPokemon.specialAttack(userPokemon);
+                         }
                      }
                  }
 
@@ -174,8 +180,9 @@ public class Main {
                      //This is the creation of a new Pokémon once the previous one is defeated
                      randomNumber = random.nextInt(4) + 1;
                      opponentPokemon = new Pokemon(randomNumber);
-                     System.out.println("You WON");
+                     System.out.println("You WON, gain 10 health !");
                      System.out.println(name.getHighScore());
+                     //name.scoreTracker(userName);
                      System.out.println("Your new opponent has a " + opponentPokemon.getElementTypeName() + " Type pokemon !");
 
                  }
