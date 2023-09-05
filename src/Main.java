@@ -39,6 +39,7 @@ public class Main {
 
         Pokemon userPokemon = new Pokemon(pokemonType);
         User name = new User(userName);
+        System.out.println();
 
     //Switch statement to let the user know which type of Pokémon type they selected
         switch (pokemonType) {
@@ -82,16 +83,16 @@ public class Main {
              while (pokemonHealth > 0 ){
 
                 //Will end the while loop once the user loses
-                 if (userPokemon.getHealth() <=   0){
+                 if (userPokemon.getHealth() <=   0 ){
 
                      System.out.println("You Lost");
-                     System.out.println(name.getHighScore());
-                     int wow = name.getHighScore();
-                     wow = 0;
-                     System.out.println(wow);
+                    // name.scoreTracker(userName);
+                     System.out.println(name.getScore());
                      break;
 
                  } else if (opponentPokemon.getHealth() <= 0) {
+                     name.addScore();
+                     System.out.println(name.getScore());
                      System.out.println("You WON!");
                     // System.out.println(name.getHighScore());
 
@@ -172,7 +173,7 @@ public class Main {
                      System.out.println("Your Health: " + userPokemonHealth);
                  }
 
-                 if (opponentPokemon.getHealth() <= 0){
+                 if (opponentPokemon.getHealth() <= 0 ){
                      System.out.println();
                      pokemonHealth +=10;
                      System.out.println("Your Health: " + userPokemon.giveHealth());
@@ -181,7 +182,9 @@ public class Main {
                      randomNumber = random.nextInt(4) + 1;
                      opponentPokemon = new Pokemon(randomNumber);
                      System.out.println("You WON, gain 10 health !");
-                     System.out.println(name.getHighScore());
+                     name.addScore();
+
+                     //System.out.println(name.getScore());
                      //name.scoreTracker(userName);
                      System.out.println("Your new opponent has a " + opponentPokemon.getElementTypeName() + " Type pokemon !");
 
